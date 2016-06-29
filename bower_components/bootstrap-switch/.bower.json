@@ -1,0 +1,11 @@
+{
+  "name": "bootstrap-switch",
+  "_cacheHeaders": {
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "main": "index",
+  "_source": "https://github.com/nostalgiaz/bootstrap-switch",
+  "_target": "*",
+  "_originalSource": "https://github.com/nostalgiaz/bootstrap-switch",
+  "_direct": true
+}

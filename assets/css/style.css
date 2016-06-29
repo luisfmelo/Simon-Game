@@ -5,12 +5,6 @@ html, body {
     background-color: #333;
 }
 
-#title{
-    text-align: center;
-    font-size: 64px;
-    font-family: Lobster, Arial;
-}
-
 footer{
     background:#555;
     width:100%;
@@ -38,20 +32,69 @@ body{
 .circle
 {
     margin: 50px auto 50px auto;
-    width: 400px;
-    height:400px;
+    width: 500px;
+    height:500px;
     border-radius:100%;
     color:#fff;
     text-align:center;
-    background: #999;
+    background-color: #999;
+    border-width: 10px;
+    border-color: red
 }
 
+.panel{
+    position: absolute;
+    margin: 125px auto auto 125px;
+    width: 250px;
+    height:250px;
+    border-radius:100%;
+    text-align:center;
+    background: #fff;
+    border-color: #999;
+    border-width: 10px;
+}
+
+.title{
+      text-align:center;
+      font-size: 64px;
+      font-family: Lobster;
+      color: #444;
+}
+
+.row2{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.counter{
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    border-radius: 40px;
+    font-family: Consolas;
+    font-size: 25px;
+    color: rgba(255,0,0,0.5);
+    float: right;
+    margin-right: -15px;
+    letter-spacing: 5px;
+
+}
+
+.startBtn{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: green;
+    font-family: Consolas;
+    font-size: 25px;
+    margin-left:15px;
+}
 
 
 /********* COLOR KEYS ***********/
 .btn{
-	width:200px;
-	height: 200px;
+	width:250px;
+	height: 250px;
     position: relative;
     border-color: #999;
     border-width: 10px;

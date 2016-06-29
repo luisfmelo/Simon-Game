@@ -16,4 +16,6 @@
 
 <strong>User Story</strong>: I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
 
+Used http://www.bootstrap-switch.org/ for Power On/off (Toogle Button)
+
 Made according to the curriculum of the Free Code Camp - <a href="https://www.freecodecamp.com/challenges/build-a-simon-game">Build a Simon Game</a>

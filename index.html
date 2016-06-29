@@ -5,16 +5,18 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified CSS bootstrap -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Link my CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Bootstrap-switch for Power On/off-->
+    <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+    <!-- Odomer-switch for Power On/off-->
+    <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css"><!-- Link my CSS -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Simon Game</title>
 </head>
 
 <body>
-
-    <h1 id="title"> Simon Game </h1>
 
     <div class="container">
         <div class="circle">
@@ -25,6 +27,17 @@
             <div class="btn yellow">
             </div>
             <div class="btn blue">
+            </div>
+
+            <div class="panel">
+                <p class="row title">Simon</p>
+                <div class="row row2">
+                    <div class="col-xs-6"><p class="counter">--</p></div>
+                    <div class="col-xs-6"><div class="startBtn">Go</div></div>
+                </div>
+                <div>
+                    <input type="checkbox" name="switchBtn" class="switchBtn" data-off-color='warning' checked>
+                </div>
             </div>
 
         </div>
@@ -42,6 +55,9 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap-switch for Power On/off-->
+<script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
 <!-- My one and only (script)-->
 <script src="assets/js/script.js"></script>
 
