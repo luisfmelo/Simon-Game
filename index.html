@@ -20,30 +20,40 @@
 
     <div class="container">
         <div class="circle">
-            <div class="btn green">
+            <div class="btn green btn1">
             </div>
-            <div class="btn red">
+            <div class="btn red btn2">
             </div>
-            <div class="btn yellow">
+            <div class="btn yellow btn3">
             </div>
-            <div class="btn blue">
+            <div class="btn blue btn4">
             </div>
 
             <div class="panel">
                 <p class="row title">Simon</p>
+                <div class="row row1">
+                    <div class="col-xs-offset-7col-xs-3">
+                        <div class="led led_off"></div>
+                    </div>
+                </div>
                 <div class="row row2">
-                    <div class="col-xs-6"><p class="counter">--</p></div>
-                    <div class="col-xs-6"><div class="startBtn">Go</div></div>
+                    <div class="col-xs-offset-1 col-xs-4"><div class="counter"><p class="level">--</p></div></div>
+                    <div class="col-xs-3"><div class="startBtn"></div></div>
+                    <div class="col-xs-3"><div class="strictBtn"></div></div>
+                </div>
+                <div class="row row3">
+                    <div class="col-xs-offset-1 col-xs-4"><span class="text">Level</span></div>
+                    <div class="col-xs-3"><span class="text"> Start</span></div>
+                    <div class="col-xs-3">
+                        <span class="text"> Strict</span>
+                    </div>
                 </div>
                 <div>
-                    <input type="checkbox" name="switchBtn" class="switchBtn" data-off-color='warning' checked>
+                    <input type="checkbox" name="switchBtn" class="switchBtn off" data-off-color='warning' checked>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 
 </body>
 
@@ -59,6 +69,6 @@
 <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 
 <!-- My one and only (script)-->
-<script src="assets/js/script.js"></script>
+<script src="assets/js/main.js"></script>
 
 </html>
