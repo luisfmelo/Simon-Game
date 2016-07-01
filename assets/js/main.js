@@ -5,13 +5,14 @@ $(document).ready(function(){
   $('.switchBtn').bootstrapSwitch('state', false);
 });
 
+var LEVEL_MAX = 3;
 var level = 0;
 var sequence = "";
 var stateMachine = true;
 var hardcoreMode = false;
 var readyToReceive = false;
 var received = 0;
-var time;
+var ended = false;
 
 // Power Button Toogle
 $('.switchBtn').on('switchChange.bootstrapSwitch', function(event, state) {
@@ -56,8 +57,10 @@ function start(){
 }
 
 function newRound(){
-  if ( level == 4)
+  if ( level == LEVEL_MAX)
     win();
+  if(ended)
+    return;
   sequence += (Math.floor(Math.random() * 4) + 1 ).toString();
   level++;
   $('.level').html( twoDigits(level) );
@@ -101,6 +104,9 @@ $('.btn').on('click', function(){
     $('.level').html( "!!" );
     i = 0;
     var interval = setInterval(function() {
+      //strict Mode
+      if (hardcoreMode)
+        start();
       i++;
       if ( i < 5)
         $('.level').toggleClass('hidden');
@@ -111,9 +117,6 @@ $('.btn').on('click', function(){
         clearInterval(interval);
         received = 0;
         readyToReceive = false;
-        //strict Mode
-        if (hardcoreMode)
-          start();
         play();
       }
     }, 250);
@@ -131,17 +134,29 @@ $('.btn').on('click', function(){
         received = 0;
         readyToReceive = false;
         newRound();
-
     }
   }
-
 });
 
 
 
 function win(){
-  level = 0;
-  alert("win");
+  ended = true;
+  $('.level').html( "**" );
+  i = 0;
+  var interval = setInterval(function() {
+    i++;
+    if ( i < 9)
+      $('.level').toggleClass('hidden');
+    else if (i == 9)
+    {
+      clearInterval(interval);
+      received = 0;
+      readyToReceive = false;
+      ended = false;
+      start();
+    }
+  }, 250);
 }
 
 function blink(n) {
