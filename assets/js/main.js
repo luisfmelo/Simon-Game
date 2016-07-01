@@ -21,6 +21,7 @@ $('.switchBtn').on('switchChange.bootstrapSwitch', function(event, state) {
   {
     level = 0;
     sequence = "";
+    readyToReceive = false;
     hardcoreMode = false;
     $('.level').html( "--" );
   }
@@ -39,6 +40,7 @@ function start(){
   if ( !stateMachine )       // if the machine is OFF
      return;
 
+  readyToReceive = false;
    level = 0;
    sequence = "";
    //Turn On machine
@@ -50,7 +52,7 @@ function newRound(){
     win();
   sequence += (Math.floor(Math.random() * 4) + 1 ).toString();
   level++;
-  $('.level').html( twoDigits(level) )
+  $('.level').html( twoDigits(level) );
   play();
 }
 
@@ -62,14 +64,14 @@ function play(){
     i++;
     if (i >= level)
       clearInterval(interval);
-  }, 500);
+  }, 800);
   readyToReceive = true;
 }
 
 
 //User turn
 $('.btn').on('click', function(){
-  if ( ! readyToReceive || !stateMachine )
+  if ( !readyToReceive || !stateMachine )
     return;
 
   var n;
@@ -88,26 +90,43 @@ $('.btn').on('click', function(){
   //user failed -> play again same sequence
   if ( n.toString() !== sequence[received] )
   {
-    received = 0;
-    readyToReceive = false;
-    //strictBt
-    //TODO
-    play();
+    $('.level').html( "!!" );
+    i = 0;
+    var interval = setInterval(function() {
+      i++;
+      if ( i < 5)
+        $('.level').toggleClass('hidden');
+      else if (i == 5)
+        $('.level').html( twoDigits(level) );
+      else if (i == 9)
+      {
+        clearInterval(interval);
+        received = 0;
+        readyToReceive = false;
+        //strictBt
+        //TODO
+        console.log(sequence)
+        play();
+      }
+    }, 250);
   }
-  received ++;
+  else {
+    received ++;
 
-  if ( received == level )
-  {
-      setInterval(function() {
-        if (received > level)
-          clearInterval(interval);
-      }, 1000);
+    if ( received == level )
+    {
+        setInterval(function() {
+          if (received > level)
+            clearInterval(interval);
+        }, 1000);
 
-      received = 0;
-      readyToReceive = false;
-      newRound();
+        received = 0;
+        readyToReceive = false;
+        newRound();
 
+    }
   }
+
 });
 
 
@@ -122,7 +141,7 @@ function blink(n) {
   $(btn).addClass('blinking');
   window.setTimeout(function() {
     $(btn).removeClass('blinking');
-  }, 500);
+  }, 400);
 }
 
 function twoDigits(n){
