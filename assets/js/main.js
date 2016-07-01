@@ -107,10 +107,9 @@ $('.btn').on('click', function(){
     readyToReceive = false;
     i = 0;
     sl.play();
+    sl.loop = true;
     var interval = setInterval(function() {
       //strict Mode
-      if (hardcoreMode)
-        start();
       i++;
       if ( i < 5)
         $('.level').toggleClass('hidden');
@@ -121,7 +120,10 @@ $('.btn').on('click', function(){
         clearInterval(interval);
         received = 0;
         sl.pause();
-        play();
+        if (hardcoreMode)
+          start();
+        else
+          play();
       }
     }, 250);
   }
