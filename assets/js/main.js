@@ -34,10 +34,8 @@ $('.switchBtn').on('switchChange.bootstrapSwitch', function(event, state) {
   }
 });
 
-
 //Start Button
 $( ".startBtn" ).click( function(){start()} );
-
 
 //Strict Mode
 $( ".strictBtn" ).click(function() {
@@ -47,21 +45,17 @@ $( ".strictBtn" ).click(function() {
   $('.led').toggleClass('led_off');
 });
 
-
-
-
+//Start the machine - reboot all variables
 function start(){
-  console.log("something");
   if ( !stateMachine )       // if the machine is OFF
-     return;
-
+    return;
   readyToReceive = false;
-   level = 0;
-   sequence = "";
-   //Turn On machine
-   newRound();
+  level = 0;
+  sequence = "";
+  newRound();
 }
 
+//New Round of the game
 function newRound(){
   if ( level == LEVEL_MAX)
     win();
@@ -73,6 +67,7 @@ function newRound(){
   play();
 }
 
+//Play the sequence
 function play(){
   var i = 0;
   //do this every 500ms
@@ -86,7 +81,6 @@ function play(){
     }
   }, 800);
 }
-
 
 //User turn
 $('.btn').on('click', function(){
@@ -106,7 +100,7 @@ $('.btn').on('click', function(){
 
   blink(n);
 
-  //user failed -> play again same sequence
+  //user failed -> play again same sequence o reboot (strict mode)
   if ( n.toString() !== sequence[received] )
   {
     $('.level').html( "!!" ).removeClass('hidden');
@@ -133,7 +127,6 @@ $('.btn').on('click', function(){
   }
   else {
     received ++;
-
     if ( received == level )
     {
         setInterval(function() {
@@ -148,8 +141,7 @@ $('.btn').on('click', function(){
   }
 });
 
-
-
+//Handle User Win
 function win(){
   ended = true;
   $('.level').html( "**" ).removeClass('hidden');
@@ -189,6 +181,7 @@ function blink(n) {
   }, 400);
 }
 
+//Helper Function
 function twoDigits(n){
     return n > 9 ? "" + n: "0" + n;
 }
