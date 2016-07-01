@@ -17,6 +17,8 @@ var s1 = new Audio('assets/musics/s1.mp3');
 var s2 = new Audio('assets/musics/s2.mp3');
 var s3 = new Audio('assets/musics/s3.mp3');
 var s4 = new Audio('assets/musics/s4.mp3');
+var sw = new Audio('assets/musics/win.wav');
+var sl = new Audio('assets/musics/lose.mp3');
 
 // Power Button Toogle
 $('.switchBtn').on('switchChange.bootstrapSwitch', function(event, state) {
@@ -110,6 +112,7 @@ $('.btn').on('click', function(){
     $('.level').html( "!!" ).removeClass('hidden');
     readyToReceive = false;
     i = 0;
+    sl.play();
     var interval = setInterval(function() {
       //strict Mode
       if (hardcoreMode)
@@ -123,6 +126,7 @@ $('.btn').on('click', function(){
       {
         clearInterval(interval);
         received = 0;
+        sl.pause();
         play();
       }
     }, 250);
@@ -150,6 +154,8 @@ function win(){
   ended = true;
   $('.level').html( "**" ).removeClass('hidden');
   i = 0;
+  sw.play();
+  sw.loop = true;
   var interval = setInterval(function() {
     i++;
     if ( i < 9)
@@ -158,6 +164,7 @@ function win(){
     {
       $('.level').removeClass('hidden');
       clearInterval(interval);
+      sw.pause();
       received = 0;
       readyToReceive = false;
       ended = false;
