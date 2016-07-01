@@ -32,6 +32,14 @@ $('.switchBtn').on('switchChange.bootstrapSwitch', function(event, state) {
 $( ".startBtn" ).click( function(){start()} );
 
 
+//Strict Mode
+$( ".strictBtn" ).click(function() {
+  if ( !stateMachine )       // if the machine is OFF
+     return;
+  hardcoreMode = !hardcoreMode;
+  $('.led').toggleClass('led_off');
+});
+
 
 
 
@@ -103,9 +111,9 @@ $('.btn').on('click', function(){
         clearInterval(interval);
         received = 0;
         readyToReceive = false;
-        //strictBt
-        //TODO
-        console.log(sequence)
+        //strict Mode
+        if (hardcoreMode)
+          start();
         play();
       }
     }, 250);
