@@ -106,6 +106,7 @@ $('.btn').on('click', function(){
     $('.level').html( "!!" ).removeClass('hidden');
     readyToReceive = false;
     i = 0;
+    sl.load();
     sl.play();
     sl.loop = true;
     var interval = setInterval(function() {
@@ -148,6 +149,7 @@ function win(){
   ended = true;
   $('.level').html( "**" ).removeClass('hidden');
   i = 0;
+  sw.load();
   sw.play();
   sw.loop = true;
   var interval = setInterval(function() {
