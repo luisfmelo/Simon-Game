@@ -1,0 +1,21 @@
+{
+  "name": "Simon-Game",
+  "homepage": "https://github.com/luisfmelo/Simon-Game",
+  "authors": [
+    "Luis Melo <luismelo7@gmail.com>"
+  ],
+  "description": "FCC zipline",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-switch": "https://github.com/nostalgiaz/bootstrap-switch",
+    "bootstrap": "^3.3.6"
+  }
+}
